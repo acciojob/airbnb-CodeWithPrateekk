@@ -4,35 +4,36 @@ import com.driver.model.Booking;
 import com.driver.model.Facility;
 import com.driver.model.Hotel;
 import com.driver.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HotelManagementService {
 
-    HotelManagementRepository hotelManagementRepository = new HotelManagementRepository();
+    HotelManagementRepository hotelManagementRepoaitory = new HotelManagementRepository();
     public String addHotel(Hotel hotel) {
-
-        return hotelManagementRepository.addHotel(hotel);
+        return hotelManagementRepoaitory.addHotel(hotel);
     }
 
     public Integer addUser(User user) {
-
-        return hotelManagementRepository.addUser(user);
+        return hotelManagementRepoaitory.addUser(user);
     }
 
     public String getHotelWithMostFacilities() {
-        return hotelManagementRepository.getHotelWithMostFacilities();
+        return hotelManagementRepoaitory.getHotelWithMostFacilities();
     }
 
-    public int bookARoom(Booking booking) {
-        return hotelManagementRepository.bookARoom(booking);
-    }
-
-    public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
-        return hotelManagementRepository.updateFacilities(newFacilities,hotelName);
+    public int bookRoom(Booking booking) {
+        return hotelManagementRepoaitory.bookRoom(booking);
     }
 
     public int getBookings(Integer aadharCard) {
-        return hotelManagementRepository.getBookings(aadharCard);
+        return hotelManagementRepoaitory.getBookings(aadharCard);
+    }
+
+    public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
+        return hotelManagementRepoaitory.updateFacilities(newFacilities, hotelName);
     }
 }
